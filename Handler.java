@@ -6,7 +6,7 @@ import java.util.LinkedList;
 public class Handler {
 
     private LinkedList<GameObject> list;
-    private boolean up = false;
+    private boolean up = true;
     private boolean down = false;
     private boolean left = false;
     private boolean right = false;

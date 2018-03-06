@@ -25,7 +25,8 @@ public class SnakeGame extends Canvas implements Runnable{
         
         new Window(width, height, title, this);
         handler = new Handler();
-        handler.add(new Player(100,100));
+        handler.add(new Player(500,300, handler));
+        this.addKeyListener(new Keyboard(handler));
         start();
         
     }
@@ -48,11 +49,9 @@ public class SnakeGame extends Canvas implements Runnable{
         //////////////////////////////////////// 
         ////draw graphics
 
-        g.setColor(Color.BLUE);
+        g.setColor(Color.WHITE);
         g.fillRect(0, 0, width, height);
         
-        g.setColor(Color.RED);
-        g.fillRect(20, 20, 100, 100);
         
         handler.render(g);
         
@@ -69,7 +68,7 @@ public class SnakeGame extends Canvas implements Runnable{
         this.requestFocus();
         
         long lastTime = System.nanoTime();
-        double amountOfTicks = 60.0;
+        double amountOfTicks = 15.0;
         double ns = 1000000000 / amountOfTicks;
         double delta = 0;
         long timer = System.currentTimeMillis();
