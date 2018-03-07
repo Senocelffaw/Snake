@@ -1,6 +1,7 @@
 package Snake;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public abstract class GameObject {
     
@@ -10,6 +11,7 @@ public abstract class GameObject {
     private int yVel;
     private int width;
     private int height;
+    private ObjectID ID;
     
     public GameObject(int x, int y) {
         
@@ -74,4 +76,15 @@ public abstract class GameObject {
         this.height = height;
     }
     
+    public Rectangle getBounds() {
+        return null;
+    }
+
+    public ObjectID getID() {
+        return ID;
+    }
+
+    public void setID(ObjectID iD) {
+        ID = iD;
+    }
 }

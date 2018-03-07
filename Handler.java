@@ -10,6 +10,7 @@ public class Handler {
     private boolean down = false;
     private boolean left = false;
     private boolean right = false;
+    private int food = 0;
     
     public Handler() {
         
@@ -37,12 +38,14 @@ public class Handler {
         int listSize = list.size();
         GameObject temp;
         
+
         for(int i = 0; i < listSize; i++) {
             
             temp = list.get(i);
             temp.update();
             
         }
+        
         
     }
     
@@ -105,6 +108,16 @@ public class Handler {
 
     public void setRight(boolean right) {
         this.right = right;
+    }
+
+
+    public int getFood() {
+        return food;
+    }
+
+
+    public void setFood(int food) {
+        this.food = food;
     }
     
 }
