@@ -8,8 +8,8 @@ import java.awt.image.BufferStrategy;
 public class SnakeGame extends Canvas implements Runnable{
     
     private static final long serialVersionUID = 1L;
-    private static int width = 1000;
-    private static int height = 600;
+    private static int width = 995;
+    private static int height = 605;
     private static String title = "Snake Game";
     private Thread thread;
     private Handler handler;
@@ -25,9 +25,9 @@ public class SnakeGame extends Canvas implements Runnable{
         
         new Window(width, height, title, this);
         handler = new Handler();
-        handler.add(new Player(500,300, handler));
+        handler.add(new Player(510, 300, handler));
         this.addKeyListener(new Keyboard(handler));
-        handler.add(new Block(550, 350, handler));
+        handler.add(new Block(570, 360, handler));
         start();
         
     }

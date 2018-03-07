@@ -3,6 +3,7 @@ package Snake;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.util.Random;
 
 public class Block extends GameObject{
 
@@ -29,8 +30,13 @@ public class Block extends GameObject{
                 
                 if(temp.getBounds().intersects(this.getBounds())) {
                     
+                    Random rand = new Random(System.currentTimeMillis());
+                    int r = rand.nextInt(67) * 15;
+                    int ry = rand.nextInt(41) * 15;
+
+                    handler.add( new Block(r, ry, handler) );
                     handler.getList().remove(this);
-//                    handler.add(new Player(temp.getX() + 15, temp.getY() + 15, handler));
+                    
                 }
                 
             }
