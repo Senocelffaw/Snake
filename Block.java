@@ -35,7 +35,12 @@ public class Block extends GameObject{
                     int ry = rand.nextInt(37) * 15;
 
                     handler.add( new Block(r, ry, handler) );
-                    ((Player) temp).getBody().add(new SnakeBody(temp.getX() + 15, temp.getY() + 15));
+                    ((Player) temp).getBody().add(new SnakeBody(temp.getX()+1000, temp.getY()+1000));
+                    ((Player) temp).getBody().add(new SnakeBody(temp.getX()+1000, temp.getY()+1000));
+                    ((Player) temp).getBody().add(new SnakeBody(temp.getX()+1000, temp.getY()+1000));
+                    ((Player) temp).getBody().add(new SnakeBody(temp.getX()+1000, temp.getY()+1000));
+                    ((Player) temp).getBody().add(new SnakeBody(temp.getX()+1000, temp.getY()+1000));
+                    ((Player) temp).getBody().add(new SnakeBody(temp.getX()+1000, temp.getY()+1000));
                     handler.getList().remove(this);
                     
                 }

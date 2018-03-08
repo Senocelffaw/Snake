@@ -24,6 +24,11 @@ public abstract class GameObject {
         
     }
     
+    public void update(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+    
     public void render(Graphics g) {
         
     }

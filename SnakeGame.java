@@ -47,6 +47,35 @@ public class SnakeGame extends Canvas implements Runnable{
         
         handler.update();
         outOfBounds();
+        collision();
+        
+    }
+    
+    public void collision() {
+        
+        int listSize = handler.getList().size();
+        GameObject temp;
+        Player p = null;
+
+        for(int i = 0; i < listSize; i++) {
+            
+            if(handler.getList().get(i).getID() == ObjectID.player) {
+                temp = handler.getList().get(i);
+                p = (Player)temp;
+            }
+            
+        }
+        
+        
+        if(p.getBody().size() >= 1) {
+            for(int i = p.getBody().size() - 1; i >= 2; i--) {
+
+                if(p.getBounds().intersects(p.getBody().get(i).getBounds())) {
+                    reset();
+                }
+                
+            }
+        }
         
     }
     
