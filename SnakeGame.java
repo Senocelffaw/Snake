@@ -8,8 +8,8 @@ import java.awt.image.BufferStrategy;
 public class SnakeGame extends Canvas implements Runnable{
     
     private static final long serialVersionUID = 1L;
-    private static int width = 995;
-    private static int height = 605;
+    private static int width = 993;
+    private static int height = 602;
     private static String title = "Snake Game";
     private Thread thread;
     private Handler handler;
@@ -32,8 +32,44 @@ public class SnakeGame extends Canvas implements Runnable{
         
     }
     
+    public void reset() {
+        
+        while(handler.getList().size() != 0) {
+            handler.getList().remove(0);
+        }
+        
+        handler.add(new Player(510, 300, handler));
+        handler.add(new Block(570, 360, handler));
+        
+    }
+    
     public void update() {
+        
         handler.update();
+        outOfBounds();
+        
+    }
+    
+    public void outOfBounds() {
+        
+        GameObject temp;
+            
+        for(int i = 0; i < handler.getList().size(); i++) {
+            
+            temp = handler.getList().get(i);
+            
+            if(temp.getID() == ObjectID.player) {
+                
+                if(temp.getX() + temp.getWidth() + 15 > width || temp.getX() < 0) {
+                    reset();
+                }
+                else if(temp.getY() + temp.getHeight()+45 > height || temp.getY() < 0) {
+                    reset();
+                }
+                
+            }
+        }
+        
     }
     
     public void render() {
@@ -69,7 +105,7 @@ public class SnakeGame extends Canvas implements Runnable{
         this.requestFocus();
         
         long lastTime = System.nanoTime();
-        double amountOfTicks = 30.0;
+        double amountOfTicks = 15.0;
         double ns = 1000000000 / amountOfTicks;
         double delta = 0;
         long timer = System.currentTimeMillis();

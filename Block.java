@@ -31,10 +31,11 @@ public class Block extends GameObject{
                 if(temp.getBounds().intersects(this.getBounds())) {
                     
                     Random rand = new Random(System.currentTimeMillis());
-                    int r = rand.nextInt(67) * 15;
-                    int ry = rand.nextInt(41) * 15;
+                    int r = rand.nextInt(65) * 15;
+                    int ry = rand.nextInt(37) * 15;
 
                     handler.add( new Block(r, ry, handler) );
+                    ((Player) temp).getBody().add(new SnakeBody(temp.getX() + 15, temp.getY() + 15));
                     handler.getList().remove(this);
                     
                 }
